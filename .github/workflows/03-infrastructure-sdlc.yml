@@ -1,0 +1,77 @@
+# SDLC Terraform infrastructure
+# Run the terraform plan and apply for the Terraform code located in this repository in the path SDLC/
+#
+# To use this workflow, you must configure the following GHA Jobs secrets: 
+# ARTIFACTORY_RO_SERVICE_PWD, ARTIFACTORY_RO_SERVICE_USER
+# SVC_TERRAFORM_ORG_PEM, SVC_TERRAFORM_ORG_PUB
+
+name: 03 SDLC
+on:
+  push:
+    branches:
+      - main
+      - aws-change/**
+    paths:
+      - '.github/workflows/03-infrastructure-sdlc.yml'
+      - '.github/workflows/terraform-*.yml'
+      - "SDLC/**"
+      - "*.sh"
+      - ".env"
+      - "!**/*.md"
+
+jobs:
+  plan_sdlc:
+    name: SDLC
+    strategy:
+      matrix:
+        environment: [dev, prod]
+    uses: ./.github/workflows/terraform-plan.yml
+    with:
+      folder_layer: ./SDLC
+      environment: ${{ matrix.environment }}
+    secrets: inherit
+
+  apply_dev:
+    name: SDLC
+    needs: plan_sdlc
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      folder_layer: ./SDLC
+      environment: dev
+    secrets: inherit
+
+  apply_demo:
+    name: SDLC
+    needs: plan_sdlc
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      folder_layer: ./SDLC
+      environment: demo
+    secrets: inherit
+
+  apply_qalv:
+    name: SDLC
+    needs: plan_sdlc
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      folder_layer: ./SDLC
+      environment: qalv
+    secrets: inherit
+
+  apply_qastg:
+    name: SDLC
+    needs: plan_sdlc
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      folder_layer: ./SDLC
+      environment: qastg
+    secrets: inherit
+
+  apply_prod:
+    name: SDLC
+    needs: [plan_sdlc, apply_dev]
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      folder_layer: ./SDLC
+      environment: prod
+    secrets: inherit

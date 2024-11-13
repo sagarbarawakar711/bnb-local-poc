@@ -1,0 +1,27 @@
+# module "lambda_shipper" {
+#   source             = "../../../modules/log_shippers/lambda"
+#   name               = "ced-datadog-forwarder"
+#   source_bucket      = "adn-ced-logging-nonprod"
+#   nr_log_shipper_arn = "NewRelic-s3-log-ingestion"
+#   parameters = {
+#     FunctionName      = "sep-datadog-forwarder"
+#     DdApiKeySecretArn = "arn:aws:secretsmanager:us-east-1:357616352787:secret:datadog-nonprod-api-key-pwxjSf"
+#     #    DD_ENHANCED_METRICS      = false
+#     DdFetchLambdaTags        = true
+#     DdFetchLogGroupTags      = true
+#     DdFetchStepFunctionsTags = true
+#     DdForwarderBucketName    = aws_s3_bucket_public_access_block.logs.bucket
+#     DdSite                   = "datadoghq.com"
+#     DdTags                   = "source:mh-alb-v1.0,account:aid,environment:nonprod,platform:sep,application:sep"
+#     TagsCacheTTLSeconds      = 300
+#     #    DdUsePrivateLink = 	true
+#     DdUseVPC = true
+#   }
+#   account     = module.aws_resource_tags.account
+#   application = module.aws_resource_tags.application
+#   function    = "logshipper"
+#   environment = module.aws_resource_tags.environment
+#   platform    = module.aws_resource_tags.platform
+#   runteam     = module.aws_resource_tags.runteam
+
+# }
