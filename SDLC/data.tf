@@ -5,8 +5,8 @@ data "terraform_remote_state" "shared" {
 
   config = {
     region = var.aws_region
-    bucket = join("-", [local.mhe_account_id, var.platform, "infra-tfstate", local.account_type])
-    key    = "env:/${local.account_type}/${var.application}_infra-./shared.state.json"
+    bucket = join("-", [local.mhe_account_id, var.application, "infra-tfstate", local.account_type])
+    key    = "env:/${local.account_type}/bab_infra-./shared.state.json"
 
 
     #bucket = join("-", [local.mhe_account_id, "remote-state", var.application, local.account_type])
@@ -18,8 +18,8 @@ data "terraform_remote_state" "init" {
 
   config = {
     region = var.aws_region
-    bucket = join("-", [local.mhe_account_id, var.platform, "infra-tfstate", local.account_type])
-    key    = "env:/${local.account_type}/${var.application}_infra-./init.state.json"
+    bucket = join("-", [local.mhe_account_id, var.application, "infra-tfstate", local.account_type])
+    key    = "env:/${local.account_type}/bab_infra-./init.state.json"
 
 
     #bucket = join("-", [local.mhe_account_id, "remote-state", var.application, local.account_type])
@@ -32,7 +32,7 @@ data "aws_vpc" "non-default" {
   # searching for the only provisioned VPC
   filter {
     name   = "tag-key"
-    values = ["aws:cloudformation:logical-id"]
+    values = ["cloudformation:logical-id"]
   }
 
   filter {
@@ -41,11 +41,11 @@ data "aws_vpc" "non-default" {
   }
 }
 
-data "aws_acm_certificate" "sep_cf_domain_certificate" {
-  domain = local.sep_cf_cert_hostname
+# data "aws_acm_certificate" "sep_cf_domain_certificate" {
+#   domain = local.sep_cf_cert_hostname
 
-  statuses = ["ISSUED"]
-}
+#   statuses = ["ISSUED"]
+# }
 
 data "aws_subnets" "public" {
   filter {

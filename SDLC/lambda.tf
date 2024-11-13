@@ -71,7 +71,7 @@ resource "aws_lambda_function" "edge_lambda" {
   handler          = "AssetDeliveryLambda::AssetDeliveryLambda.Function::FunctionHandler"
   runtime          = "nodejs16.x"
   role             = aws_iam_role.lambda_edge_role.arn
-  source_code_hash = filebase64sha256("function.zip")
+  #source_code_hash = filebase64sha256("function.zip")
   filename         = "function.zip"
   publish          = "true"
   timeout          = 180
