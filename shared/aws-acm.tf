@@ -32,11 +32,11 @@ module "aws_acm" {
 
 locals {
   sep_dns_names = terraform.workspace == "nonprod" ? {
-    "sep.nonprod.mheducation.com" = [
-      "dev-api-admin.sep.nonprod.mheducation.com", # Backend api nonprod
-      "dev-api.sep.nonprod.mheducation.com",       # Frontend api prod
-      "dev-admin.sep.nonprod.mheducation.com",     # Backend app nonprod
-      "dev.sep.nonprod.mheducation.com"            # Frontend app nonprod
+    "bb.nonprod.uiplonline.com" = [
+      "dev-api-admin.bb.nonprod.uiplonline.com", # Backend api nonprod
+      "dev-api.bb.nonprod.uiplonline.com",       # Frontend api prod
+      "dev-admin.bb.nonprod.uiplonline.com",     # Backend app nonprod
+      "dev.bb.nonprod.uiplonline.com"            # Frontend app nonprod
     ],
     } : {
     "sep.mheducation.com" = [
@@ -51,9 +51,9 @@ locals {
   sep_cf_dns_name = local.account_type == "prod" ? {
     "static.sep.mheducation.com" = ["static.sep.mheducation.com", "prod-static.sep.mheducation.com"]
     } : {
-    "dev-static.sep.nonprod.mheducation.com" = [
-      "dev-static.sep.nonprod.mheducation.com",
-      "static.sep.nonprod.mheducation.com"
+    "dev-static.bb.nonprod.uiplonline.com" = [
+      "dev-static.bb.nonprod.uiplonline.com",
+      "static.bb.nonprod.uiplonline.com"
     ],
   }
 }

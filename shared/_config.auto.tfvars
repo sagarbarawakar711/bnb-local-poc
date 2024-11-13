@@ -1,7 +1,7 @@
 # These zones are expected to be present and externally managed just for safety.
 # TODO: MOVE THIS TO .env
 zone_name = {
-  "nonprod" = "sep.nonprod.mheducation.com",
+  "nonprod" = "bb.nonprod.uiplonline.com",
   "prod"    = "sep.mheducation.com",
 }
 
@@ -17,7 +17,7 @@ dead_letter_email_list = [
 ## Nonprod & Prod domains for Backend API Service
 backend_api = {
   dev_backend_api = {
-    dns_name = "dev-api-admin.sep.nonprod.mheducation.com"
+    dns_name = "dev-api-admin.bb.nonprod.uiplonline.com"
   }
 
 }
@@ -32,7 +32,7 @@ backend_api_prod = {
 ## Nonprod & Prod domains for Frontend API Service
 frontend_api = {
   dev_frontend_api = {
-    dns_name = "dev-api.sep.nonprod.mheducation.com"
+    dns_name = "dev-api.bb.nonprod.uiplonline.com"
   }
 }
 
@@ -46,7 +46,7 @@ frontend_api_prod = {
 ## Nonprod & Prod domains for Backend APP Service
 backend_app = {
   dev_backend_app = {
-    dns_name = "dev-admin.sep.nonprod.mheducation.com"
+    dns_name = "dev-admin.bb.nonprod.uiplonline.com"
   }
 }
 
@@ -59,7 +59,7 @@ backend_app_prod = {
 ## Nonprod & Prod domains for Frontend APP Service
 frontend_app = {
   dev_frontend_app = {
-    dns_name = "dev.sep.nonprod.mheducation.com"
+    dns_name = "dev.bb.nonprod.uiplonline.com"
   }
 }
 

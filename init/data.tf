@@ -5,7 +5,7 @@ data "aws_vpc" "non-default" {
   # searching for the only provisioned VPC
   filter {
     name   = "tag-key"
-    values = ["aws:cloudformation:logical-id"]
+    values = ["cloudformation:logical-id"]
   }
 
   filter {

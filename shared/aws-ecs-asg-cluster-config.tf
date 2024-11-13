@@ -18,7 +18,7 @@ variable "cluster_max_size_config_map" {
 
 variable "instance_type_config_map" {
   default = {
-    nonprod = "m5.large"
+    nonprod = "t2.micro"
     prod    = "m5a.large"
   }
   description = "The EC2 instance type to run in the ECS cluster. See https://aws.amazon.com/ec2/pricing/on-demand/"

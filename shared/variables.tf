@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region to put resources in."
   type        = string
-  default     = "us-east-1"
+  default     = "us-east-2"
 }
 
 #### ECS Services Domain Configurations

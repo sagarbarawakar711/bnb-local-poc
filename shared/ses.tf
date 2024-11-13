@@ -69,7 +69,7 @@ resource "aws_ses_identity_policy" "sep" {
       {
         "Sid" : "AuthorizeAWS",
         "Effect" : "Allow",
-        "Resource" : "arn:aws:ses:us-east-1:${data.aws_caller_identity.self.account_id}:identity/${local.ses_sending_domain}",
+        "Resource" : "arn:aws:ses:us-east-2:${data.aws_caller_identity.self.account_id}:identity/${local.ses_sending_domain}",
         "Principal" : {
           "AWS" : [
             tostring(data.aws_caller_identity.self.account_id)

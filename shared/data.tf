@@ -2,12 +2,12 @@
 data "terraform_remote_state" "init" {
   backend = "s3"
 
-  config = {
-    region = var.aws_region
-    # TODO: check if variables are allowed
-    bucket = join("-", [local.mhe_account_id, var.platform, "infra-tfstate", module.aws_resource_tags.environment])
-    key    = "env:/${module.aws_resource_tags.environment}/${var.application}_infra-./init.state.json"
-  }
+   config = {
+     region = var.aws_region
+     # TODO: check if variables are allowed
+     bucket = join("-", [local.mhe_account_id, var.application, "infra-tfstate", local.account_type])
+     key    = "env:/${local.account_type}/bab_infra-./init.state.json"
+ }
 }
 
 # Default VPC is Amazon's. Non-default is usually provisioned for us
@@ -15,7 +15,7 @@ data "aws_vpc" "non-default" {
   # searching for the only provisioned VPC
   filter {
     name   = "tag-key"
-    values = ["aws:cloudformation:logical-id"]
+    values = ["cloudformation:logical-id"]
   }
 
   filter {

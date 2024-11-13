@@ -18,10 +18,10 @@ resource "aws_iam_policy" "ses_send_emails" {
 EOF
 }
 ### IAM User
-data "aws_iam_user" "smtp_user" {
-  user_name = "sep-ses-smtp-user"
-}
-resource "aws_iam_user_policy_attachment" "user_policy_attachment" {
-  user       = data.aws_iam_user.smtp_user.user_name
-  policy_arn = aws_iam_policy.ses_send_emails.arn
-}
+# data "aws_iam_user" "smtp_user" {
+#   user_name = "sep-ses-smtp-user"
+# }
+# resource "aws_iam_user_policy_attachment" "user_policy_attachment" {
+#   user       = data.aws_iam_user.smtp_user.user_name
+#   policy_arn = aws_iam_policy.ses_send_emails.arn
+# }

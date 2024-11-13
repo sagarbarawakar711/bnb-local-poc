@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS Region to operate within. May be obsolete?"
   type        = string
-  default     = "us-east-1"
+  default     = "us-east-2"
 }
 
 variable "TF_STATE_BUCKET_NAME" {

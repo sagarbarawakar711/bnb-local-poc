@@ -1,12 +1,12 @@
 # Look up the right AMI ID
 # Lookup latest Base AMI releases: https://github.mheducation.com/base-amis/amazon-linux-ecs-optimized/releases
-module "al2_ecs_ami" {
-  source      = "git::ssh://git@github.mheducation.com/terraform/aws-base-ami.git?ref=3.2.1"
-  ami_os      = "al2"
-  ami_app     = "ecs"
-  ami_version = "1.7.0_6"
+# module "al2_ecs_ami" {
+#   source      = "git::ssh://git@github.mheducation.com/terraform/aws-base-ami.git?ref=3.2.1"
+#   ami_os      = "al2"
+#   ami_app     = "ecs"
+#   ami_version = "1.7.0_6"
   # Default value is 64-bit Intel/AMD
-}
+#}
 data "template_file" "user_data" {
   template = file("userdata.sh")
   vars = {
@@ -23,7 +23,7 @@ module "aws_ecs_asg_cluster" {
 
 
   # General configuration
-  ami_id        = module.al2_ecs_ami.ami_id
+  ami_id        = "ami-0fae88c1e6794aa17"
   instance_type = local.instance_type
 
   root_volume_size = 50
