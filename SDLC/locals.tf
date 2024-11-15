@@ -7,7 +7,7 @@ locals {
   s3_logs_bucket_prefix = join("-", [module.aws_resource_tags.account, module.aws_resource_tags.application, local.account_type])
 
 
-  domain_name = local.account_type == "prod" ? "sep.mheducation.com" : "sep.nonprod.mheducation.com"
+  domain_name = local.account_type == "prod" ? "prod.uiplonline.com" : "sep.nonprod.mheducation.com"
 
   sep_cf_cert_hostname = local.account_type == "prod" ? "static.${local.domain_name}" : "${local.environment}-static.sep.nonprod.mheducation.com"
 
@@ -35,6 +35,9 @@ locals {
   }
   filtered_common_tags_backend_api = {
     for key, value in module.aws_resource_tags_backend_api.common_tags : key => value if value != ""
+  }
+  filtered_common_tags_bnb_poc = {
+    for key, value in module.aws_resource_tags_bnb_poc.common_tags : key => value if value != ""
   }
   filtered_common_tags_backend_api_dark = {
     for key, value in module.aws_resource_tags_backend_api_dark.common_tags : key => value if value != ""

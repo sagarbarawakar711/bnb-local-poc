@@ -39,17 +39,17 @@ locals {
       "dev.bb.nonprod.uiplonline.com"            # Frontend app nonprod
     ],
     } : {
-    "sep.mheducation.com" = [
-      "api.admin.sep.mheducation.com", # Backend api prod
-      "api.sep.mheducation.com",       # Frontend api prod
-      "admin.sep.mheducation.com",     # Backend app prod
-      "sep.mheducation.com"            #Frontend app prod
+    "prod.uiplonline.com" = [
+      "api.admin.prod.uiplonline.com", # Backend api prod
+      "api.prod.uiplonline.com",       # Frontend api prod
+      "admin.prod.uiplonline.com",     # Backend app prod
+      "prod.uiplonline.com"            #Frontend app prod
     ],
   }
 
 
   sep_cf_dns_name = local.account_type == "prod" ? {
-    "static.sep.mheducation.com" = ["static.sep.mheducation.com", "prod-static.sep.mheducation.com"]
+    "static.prod.uiplonline.com" = ["static.prod.uiplonline.com", "prod-static.prod.uiplonline.com"]
     } : {
     "dev-static.bb.nonprod.uiplonline.com" = [
       "dev-static.bb.nonprod.uiplonline.com",

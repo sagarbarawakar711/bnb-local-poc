@@ -2,7 +2,7 @@
 # TODO: MOVE THIS TO .env
 zone_name = {
   "nonprod" = "bb.nonprod.uiplonline.com",
-  "prod"    = "sep.mheducation.com",
+  "prod"    = "prod.uiplonline.com",
 }
 
 inline_policy = [
@@ -24,7 +24,7 @@ backend_api = {
 
 backend_api_prod = {
   prod_backend_api = {
-    dns_name = "admin.api.sep.mheducation.com"
+    dns_name = "admin.api.prod.uiplonline.com"
   }
 }
 
@@ -38,7 +38,7 @@ frontend_api = {
 
 frontend_api_prod = {
   prod_frontend_api = {
-    dns_name = "api.sep.mheducation.com"
+    dns_name = "api.prod.uiplonline.com"
   }
 }
 
@@ -52,7 +52,7 @@ backend_app = {
 
 backend_app_prod = {
   prod_backend_app = {
-    dns_name = "admin.sep.mheducation.com"
+    dns_name = "admin.prod.uiplonline.com"
   }
 }
 
@@ -65,6 +65,6 @@ frontend_app = {
 
 frontend_app_prod = {
   prod_frontend_app = {
-    dns_name = "sep.mheducation.com"
+    dns_name = "prod.uiplonline.com"
   }
 }

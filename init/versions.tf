@@ -12,14 +12,15 @@ terraform {
     }
   }
 
+
   backend "s3" {
     encrypt = true # this is required when server-side encryption at rest is enabled on bucket
   }
 }
 
-provider "aws" {
-  region = var.aws_region
-}
+# provider "aws" {
+#   region = var.aws_region
+# }
 
-provider "null" {
-}
+# provider "null" {
+# }

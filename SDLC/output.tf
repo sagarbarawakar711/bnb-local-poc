@@ -60,8 +60,8 @@ output "frontend_app_sdlc_fqdn" {
 
 
 # Output of Frontend APP DARK SDLC URLs
-output "origin_access_identity" {
-  value = {
-    "CF_origin_access_identity" = aws_cloudfront_origin_access_identity.origin_access_identity
-  }
-}
+# output "origin_access_identity" {
+#   value = {
+#     "CF_origin_access_identity" = aws_cloudfront_origin_access_identity.origin_access_identity
+#   }
+# }

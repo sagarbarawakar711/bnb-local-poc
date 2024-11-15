@@ -10,4 +10,10 @@
 #   # Tags
 #   tags = module.aws_resource_tags.common_tags
 # }
+provider "aws" {
+  region = var.aws_region
+}
+
+provider "null" {
+}
 

@@ -20,6 +20,15 @@ module "aws_resource_tags_backend_api" {
   platform    = var.platform
   runteam     = var.runteam
 }
+module "aws_resource_tags_bnb_poc" {
+  source      = "git@github.mheducation.com:terraform/aws-resource-tags.git?ref=5.1.0"
+  account     = local.mhe_account_id
+  application = var.application
+  environment = local.environment
+  function    = "bnb-poc"
+  platform    = var.platform
+  runteam     = var.runteam
+}
 
 module "aws_resource_tags_backend_api_dark" {
   source      = "git@github.mheducation.com:terraform/aws-resource-tags.git?ref=5.1.0"

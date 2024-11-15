@@ -1,6 +1,6 @@
 locals {
-  container_image = "461655781674.dkr.ecr.us-east-2.amazonaws.com/bnb-bab-nonprod-api:latest"
-  image_tag = var.common_tags.Environment == "dev" ? "${var.common_tags.Account}-sep-${var.common_tags.Environment}backend-api-be0fd54a4c6f40298607ae76a51a3f567dc46975" : "backend-api-be0fd54a4c6f40298607ae76a51a3f567dc46975"
+  container_image = "${local.aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/${var.common_tags.Account}-bab-${local.sdlc_env}-api:${local.image_tag}"
+  image_tag = "latest"
   #container_port  = 8000
   container_port = 80
 
@@ -23,7 +23,7 @@ locals {
   tass_grant_type = "client_credentials"
   tass_scope      = "auth"
   // Adding this to prevent task defintion from trying to reference dark-contentsearch
-  application    = "sep"
+  application    = "bnb"
   function       = var.common_tags["Function"]
   sdlc_env       = var.common_tags.Environment == "prod" ? "prod" : "nonprod"
   aws_account_id = data.aws_caller_identity.self.account_id
